@@ -19,7 +19,8 @@ import org.springframework.transaction.annotation.Transactional;
 @ContextConfiguration(locations = "file:src/main/webapp/WEB-INF/spring/appServlet/servlet-context.xml")
 public class UserServiceTest {
 
-	@Autowired	private UserService userService;
+	@Autowired
+	private UserService userService;
 	private int id;
 	private String username;
 	private String password;
@@ -35,11 +36,11 @@ public class UserServiceTest {
 	@Test
 	public void //
 	should_return_matched_result_when_user_is_member() {
-		User getUser = userService.findByUserName(username);
+		User getUser = userService.findByUserName(this.username);
 
-		assertThat(getUser.getId(), is(4));
-		assertThat(getUser.getUserName(), is(username));
-		assertThat(getUser.getPassword(), is(password));
+		assertThat(getUser.getId(), is(this.id));
+		assertThat(getUser.getUserName(), is(this.username));
+		assertThat(getUser.getPassword(), is(this.password));
 	}
 
 	@Test
@@ -51,20 +52,20 @@ public class UserServiceTest {
 
 		userService.addMemeber(user);
 
-		User addedUser = userService.findByUserName(username);
+		User addedUser = userService.findByUserName(this.username);
 
-		assertThat(addedUser.getId(), is(id));
-		assertThat(addedUser.getUserName(), is(username));
-		assertThat(addedUser.getPassword(), is(password));
+		assertThat(addedUser.getId(), is(this.id));
+		assertThat(addedUser.getUserName(), is(this.username));
+		assertThat(addedUser.getPassword(), is(this.password));
 
 	}
 
 	@Test(expected = IllegalArgumentException.class)
 	public void //
-	should_throw_an_exception_when_user_is_already_exist() {
+	should_throw_an_exception_when_the_added_user_is_already_exist() {
 		User user = new User();
-		user.setUserName(username);
-		user.setPassword(password);
+		user.setUserName(this.username);
+		user.setPassword(this.password);
 
 		userService.addMemeber(user);
 	}
