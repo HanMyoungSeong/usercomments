@@ -1,37 +1,27 @@
 package kr.ac.jejuuniv;
 
-import static org.hamcrest.CoreMatchers.*;
-import static org.junit.Assert.*;
+import static org.hamcrest.CoreMatchers.is;
+import static org.junit.Assert.assertThat;
 
 import java.util.Random;
 
 import kr.ac.jejuuniv.service.UserService;
 
-import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.springframework.transaction.annotation.Transactional;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = "file:src/main/webapp/WEB-INF/spring/appServlet/servlet-context.xml")
+@ContextConfiguration(locations = "classpath:kr/ac/jejuuniv/repository/test-context.xml")
 public class UserServiceTest {
 
 	@Autowired
 	private UserService userService;
-	private int id;
-	private String username;
-	private String password;
-
-	@Before
-	public void//
-	setUp() {
-		id = 4;
-		password = "1q2w3e";
-		username = "testname3";
-	}
+	private int id = 2;
+	private String username = "testname3";
+	private String password = "1q2w3e";
 
 	@Test
 	public void //
@@ -48,7 +38,7 @@ public class UserServiceTest {
 	should_add_user_when_user_is_not_member() {
 		User user = new User();
 		user.setUserName("testname" + String.valueOf(new Random().nextInt()));
-		user.setPassword("1q2w3e");
+		user.setPassword(password);
 
 		userService.addMemeber(user);
 
