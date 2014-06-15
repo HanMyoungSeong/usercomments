@@ -9,9 +9,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 @Controller
-@RequestMapping("memberValidation")
+@RequestMapping("login")
 @SessionAttributes("sessionUser")
-public class MemberValidation {
+public class Login {
 
 	@Autowired
 	private UserService userService;

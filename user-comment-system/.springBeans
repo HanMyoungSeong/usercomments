@@ -7,7 +7,7 @@
 	</configSuffixes>
 	<enableImports><![CDATA[true]]></enableImports>
 	<configs>
-		<config>src/test/resources/kr/ac/jejuuniv/repository/test-context.xml</config>
+		<config>src/test/resources/kr/ac/jejuuniv/repository/test-mybatis-context.xml</config>
 	</configs>
 	<autoconfigs>
 		<config>src/main/webapp/WEB-INF/spring/appServlet/servlet-context.xml</config>

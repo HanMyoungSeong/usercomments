@@ -1,7 +1,7 @@
 package kr.ac.jejuuniv;
 
-import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertThat;
+import static org.hamcrest.CoreMatchers.*;
+import static org.junit.Assert.*;
 
 import java.util.Random;
 
@@ -14,49 +14,49 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = "classpath:kr/ac/jejuuniv/repository/test-context.xml")
+@ContextConfiguration(locations = "classpath:kr/ac/jejuuniv/repository/test-mybatis-context.xml")
 public class UserServiceTest {
 
 	@Autowired
 	private UserService userService;
-	private int id = 2;
-	private String username = "testname3";
-	private String password = "1q2w3e";
+	
+	private static final int
+	ID = 2;
+	
+	private static final String
+	USERNAME = "testname3";
+	
+	private static final String
+	PASSWORD = "1q2w3e";
 
 	@Test
 	public void //
 	should_return_matched_result_when_user_is_member() {
-		User getUser = userService.findByUserName(this.username);
-
-		assertThat(getUser.getId(), is(this.id));
-		assertThat(getUser.getUserName(), is(this.username));
-		assertThat(getUser.getPassword(), is(this.password));
+		User getUser = userService.findByUserName(USERNAME);
+		assertThat(getUser.getId(), is(ID));
+		assertThat(getUser.getUserName(), is(USERNAME));
+		assertThat(getUser.getPassword(), is(PASSWORD));
 	}
 
 	@Test
 	public void //
 	should_add_user_when_user_is_not_member() {
-		User user = new User();
-		user.setUserName("testname" + String.valueOf(new Random().nextInt()));
-		user.setPassword(password);
+		String addUserName = "testname" + String.valueOf(new Random().nextInt());
+		User user = new User(addUserName, PASSWORD);
 
 		userService.addMemeber(user);
 
-		User addedUser = userService.findByUserName(this.username);
-
-		assertThat(addedUser.getId(), is(this.id));
-		assertThat(addedUser.getUserName(), is(this.username));
-		assertThat(addedUser.getPassword(), is(this.password));
-
+		User addedUser = userService.findByUserName(USERNAME);
+		assertThat(addedUser.getId(), is(ID));
+		assertThat(addedUser.getUserName(), is(USERNAME));
+		assertThat(addedUser.getPassword(), is(PASSWORD));
 	}
 
 	@Test(expected = IllegalArgumentException.class)
 	public void //
 	should_throw_an_exception_when_the_added_user_is_already_exist() {
-		User user = new User();
-		user.setUserName(this.username);
-		user.setPassword(this.password);
-
+		User user = new User(USERNAME, PASSWORD);
 		userService.addMemeber(user);
 	}
+
 }

@@ -15,7 +15,7 @@
 			<h1>댓글시스템 로그인</h1>
 		</div>
 		<div id="content">
-			<form class="form-horizontal" action="memberValidation" method="post">
+			<form class="form-horizontal" action="login" method="post">
 				<div class="form-group">
 					<label class="col-sm-2 control-label">ID</label>
 					<div class="col-sm-5">
