@@ -5,10 +5,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping("/")
-public class Comments {
+
+public class CommentMain {
 
 	@RequestMapping
-	public String comment(){
+	public String comments() {
 		return "comments";
 	}
 }

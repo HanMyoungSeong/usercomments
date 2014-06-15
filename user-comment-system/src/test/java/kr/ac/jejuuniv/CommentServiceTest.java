@@ -1,21 +1,18 @@
 package kr.ac.jejuuniv;
 
-import static org.hamcrest.CoreMatchers.*;
-import static org.junit.Assert.*;
+import static org.hamcrest.CoreMatchers.is;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertThat;
 
 import java.util.List;
-import java.util.Random;
 
 import kr.ac.jejuuniv.service.CommentService;
-import kr.ac.jejuuniv.service.CommentServiceImpl;
 
-import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.springframework.transaction.annotation.Transactional;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = { "classpath:kr/ac/jejuuniv/repository/test-mybatis-context.xml" })
@@ -60,7 +57,7 @@ public class CommentServiceTest {
 
 	@Test
 	public void //
-	should_return_matched_result_when_user_is_add_comment() {
+	should_return_matched_result_when_user_is_added_comment() {
 		Comment comment = new Comment();
 		comment.setId(FOREIGN_KEY_ID);
 		comment.setAuthor(AUTHOR);
