@@ -1,8 +1,7 @@
 package kr.ac.jejuuniv;
 
 import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertThat;
+import static org.junit.Assert.*;
 
 import java.util.List;
 
@@ -22,7 +21,7 @@ public class CommentServiceTest {
 	FOREIGN_KEY_ID = 2;
 	
 	private static final int 
-	COMMEND_ID = 1;
+	COMMENT_ID = 1;
 	
 	private static final String 
 	AUTHOR = "testname3";
@@ -45,9 +44,10 @@ public class CommentServiceTest {
 	@Test
 	public void //
 	should_return_matched_result_when_importing_a_comment() {
-		Comment comment = commentService.findByCommentId(COMMEND_ID);
+		Comment comment = commentService.findByCommentId(COMMENT_ID);
 
 		assertThat(comment.getId(), is(FOREIGN_KEY_ID));
+		assertThat(comment.getCommentId(), is(COMMENT_ID));
 		assertThat(comment.getAuthor(), is(AUTHOR));
 		assertThat(comment.getComment(), is(COMMENT));
 		assertThat(comment.getRecommendation(), is(RECOMMENDATION));
@@ -67,7 +67,7 @@ public class CommentServiceTest {
 
 		commentService.addComment(comment);
 
-		Comment findComment = commentService.findByCommentId(COMMEND_ID);
+		Comment findComment = commentService.findByCommentId(COMMENT_ID);
 
 		assertThat(findComment.getId(), is(FOREIGN_KEY_ID));
 		assertThat(findComment.getAuthor(), is(AUTHOR));
@@ -95,7 +95,7 @@ public class CommentServiceTest {
 
 	@Test
 	public void //
-	user_is_deleted_comment() {
+	should_return_null_when_user_is_deleted_comment() {
 		int deleteCommentId = 4;
 		commentService.deleteComment(deleteCommentId);
 
@@ -103,5 +103,11 @@ public class CommentServiceTest {
 
 		assertNull(deletedComment);
 
+	}
+	
+	@Test
+	public void 
+	should_return_matched_result_when_user_is_recommend() {
+		
 	}
 }

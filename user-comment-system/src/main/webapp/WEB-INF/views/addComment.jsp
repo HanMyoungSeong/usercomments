@@ -18,7 +18,7 @@
 			<form action="writeComment" method="post">
 				<div class="form-group">
 					<label>댓글등록</label>
-					<textarea class="form-control textareasize" rows="5" name="comment"></textarea>
+					<textarea type="text" class="form-control textareasize" rows="5" name="comment"></textarea>
 				</div>
 				<button type="submit" class="btn btn-default">저장</button>
 				<a href="comments.jeju" class="btn btn-default">취소</a>

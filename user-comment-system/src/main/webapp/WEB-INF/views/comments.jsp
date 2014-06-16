@@ -10,14 +10,11 @@
 <link rel="stylesheet" type="text/css" href="resources/comments.css">
 </head>
 <body style="background-color: #000000">
-	<%
-		String userName = (String) ((session.getAttribute("username") != null)
-				? session.getAttribute("username")
-				: "");
-	%>
 	<div id="wrap">
 		<div id="header">
-			<div id="userid"><%=userName%></div>
+			<div id="userid">
+				<label>${username}</label>
+			</div>
 			<a id="writeButton" class="btn btn-default leftbutton">글쓰기</a>
 			<hr id="underline" />
 		</div>
@@ -36,9 +33,18 @@
 						<tr>
 							<td class="rightalign"><@=list[i].author@></td>
 							<td class="centeralign"><@=list[i].comment@></td>
-							<td class="centeralign"><a href="" class="btn btn-default">찬성(<@=list[i].recommendation@>)</a>&nbsp<a
-								href="#" class="btn btn-default">반대(<@=list[i].opposition@>)</a> <a href="deleteComment?commentId=<@=list[i].commentId@>"
-								class="btn btn-default">삭제</a></td>
+							<td class="centeralign">
+
+								<a href="" class="btn btn-default">찬성(<@=list[i].recommendation@>)</a>&nbsp
+								<a href="#" class="btn btn-default">반대(<@=list[i].opposition@>)</a> 
+							</td>
+							<td>
+							<@var id = ${id}@>
+						<@	if(id === list[i].id)	{	@>
+								<a href="deleteComment?commentId=<@=list[i].commentId@>" class="btn btn-default">삭제</a>
+									
+						<@	}	@>
+							</td>
 							<td><@=list[i].date@></td>
 						</tr>
 
