@@ -1,6 +1,6 @@
 package kr.ac.jejuuniv.repository;
 
-import kr.ac.jejuuniv.User;
+import kr.ac.jejuuniv.model.User;
 
 import org.springframework.stereotype.Repository;
 

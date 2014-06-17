@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="kr.ac.jejuuniv.repository.CommentRepository">
+	<select id="get" resultType="Comment">
+		select
+		*from comment
+		where commentid = #{commentId}
+	</select>
+
+	<insert id="insert" parameterType="Comment">
+		insert into
+		comment(id, author, comment, recommendation, opposition, date)
+		values(#{id},
+		#{author}, #{comment}, #{recommendation}, #{opposition}, #{date})
+	</insert>
+
+	<select id="getAll" resultType="Comment">
+		select *from comment order by date DESC
+	</select>
+	
+	<delete id="delete" parameterType="Comment">
+		delete from comment where commentid = #{commentId}
+	</delete>
+</mapper>

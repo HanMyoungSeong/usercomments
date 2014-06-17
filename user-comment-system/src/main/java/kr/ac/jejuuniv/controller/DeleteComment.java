@@ -1,6 +1,6 @@
 package kr.ac.jejuuniv.controller;
 
-import kr.ac.jejuuniv.service.CommentService;
+import kr.ac.jejuuniv.service.comment.CommentService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

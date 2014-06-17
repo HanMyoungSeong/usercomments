@@ -2,8 +2,8 @@ package kr.ac.jejuuniv.controller;
 
 import javax.servlet.http.HttpSession;
 
-import kr.ac.jejuuniv.User;
-import kr.ac.jejuuniv.service.UserService;
+import kr.ac.jejuuniv.model.User;
+import kr.ac.jejuuniv.service.user.UserService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -35,5 +35,4 @@ public class Sign {
 		httpSession.setAttribute("id", getUser.getId());
 		httpSession.setAttribute("username", getUser.getUserName());
 	}
-
 }

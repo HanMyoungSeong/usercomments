@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Repository;
 
-import kr.ac.jejuuniv.Comment;
+import kr.ac.jejuuniv.model.Comment;
 
 @Repository
 public interface CommentRepository {
@@ -16,5 +16,9 @@ public interface CommentRepository {
 	List<Comment> getAll();
 
 	void delete(int commentId);
+
+	void recommend(int commentId);
+
+	void oppose(int commentId);
 
 }

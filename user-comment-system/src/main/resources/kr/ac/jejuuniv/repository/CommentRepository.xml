@@ -11,16 +11,23 @@
 
 	<insert id="insert" parameterType="Comment">
 		insert into
-		comment(id, author, comment, recommendation, opposition, date)
-		values(#{id},
-		#{author}, #{comment}, #{recommendation}, #{opposition}, #{date})
+		comment(id, author, comment, recommendation, opposition, date, time)
+		values(#{id}, #{author}, #{comment}, #{recommendation}, #{opposition}, #{date}, #{time})
 	</insert>
 
 	<select id="getAll" resultType="Comment">
-		select *from comment order by date DESC
+		select *from comment order by date desc, time desc
 	</select>
 	
 	<delete id="delete" parameterType="Comment">
 		delete from comment where commentid = #{commentId}
 	</delete>
+	
+	<update id="recommend" parameterType="Comment">
+		update comment set recommendation = recommendation + 1 where commentid = #{commentId}
+	</update>
+	
+	<update id="oppose" parameterType="Comment">
+		update comment set opposition = opposition + 1 where commentid = #{commentId}
+	</update>
 </mapper>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite failures="0" time="0.014" errors="1" skipped="0" tests="1" name="kr.ac.jejuuniv.UserServiceTest">
+<testsuite failures="0" time="0.047" errors="0" skipped="0" tests="3" name="kr.ac.jejuuniv.UserServiceTest">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Libraries"/>
@@ -17,7 +17,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="sun.os.patch.level" value="unknown"/>
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
-    <property name="user.dir" value="/Users/hms/Documents/Workspace_Spring/user-comment-system"/>
+    <property name="user.dir" value="/Users/hms/Documents/Repository_github/usercomments/user-comment-system"/>
     <property name="java.runtime.version" value="1.6.0_65-b14-462-11M4609"/>
     <property name="java.awt.graphicsenv" value="apple.awt.CGraphicsEnvironment"/>
     <property name="java.endorsed.dirs" value="/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home/lib/endorsed"/>
@@ -27,7 +27,7 @@
 "/>
     <property name="java.vm.specification.vendor" value="Sun Microsystems Inc."/>
     <property name="os.name" value="Mac OS X"/>
-    <property name="classworlds.conf" value="/usr/local/maven/bin/m2.conf"/>
+    <property name="classworlds.conf" value="/Users/hms/Documents/Workspace_Spring/.metadata/.plugins/org.eclipse.m2e.launching/launches/m2conf4797089039533667168.tmp"/>
     <property name="sun.jnu.encoding" value="EUC_KR"/>
     <property name="java.library.path" value=".:/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
@@ -39,14 +39,13 @@
     <property name="user.timezone" value="Asia/Seoul"/>
     <property name="java.awt.printerjob" value="apple.awt.CPrinterJob"/>
     <property name="java.specification.version" value="1.6"/>
-    <property name="file.encoding" value="EUC_KR"/>
+    <property name="file.encoding" value="UTF-8"/>
     <property name="user.name" value="hms"/>
-    <property name="java.class.path" value="/usr/local/maven/boot/plexus-classworlds-2.5.1.jar"/>
-    <property name="org.slf4j.simpleLogger.defaultLogLevel" value="info"/>
+    <property name="java.class.path" value="/Users/hms/springsource/sts-3.5.1.RELEASE/configuration/org.eclipse.osgi/bundles/583/1/.cp/jars/plexus-classworlds-2.4.jar"/>
     <property name="java.vm.specification.version" value="1.0"/>
     <property name="sun.arch.data.model" value="64"/>
     <property name="java.home" value="/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home"/>
-    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher install"/>
+    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher -B install"/>
     <property name="java.specification.vendor" value="Sun Microsystems Inc."/>
     <property name="user.language" value="ko"/>
     <property name="awt.toolkit" value="apple.awt.CToolkit"/>
@@ -55,9 +54,10 @@
     <property name="java.ext.dirs" value="/Library/Java/Extensions:/System/Library/Java/Extensions:/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home/lib/ext"/>
     <property name="sun.boot.class.path" value="/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Classes/jsfd.jar:/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Classes/classes.jar:/System/Library/Frameworks/JavaVM.framework/Frameworks/JavaRuntimeSupport.framework/Resources/Java/JavaRuntimeSupport.jar:/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Classes/ui.jar:/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Classes/laf.jar:/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Classes/sunrsasign.jar:/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Classes/jsse.jar:/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Classes/jce.jar:/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Classes/charsets.jar"/>
     <property name="java.vendor" value="Apple Inc."/>
-    <property name="maven.home" value="/usr/local/maven"/>
+    <property name="maven.home" value="/Users/hms/Documents/Repository_github/usercomments/user-comment-system/EMBEDDED"/>
     <property name="file.separator" value="/"/>
     <property name="java.vendor.url.bug" value="http://bugreport.apple.com/"/>
+    <property name="maven.bootclasspath" value="/Users/hms/springsource/sts-3.5.1.RELEASE/configuration/org.eclipse.osgi/bundles/583/1/.cp/jars/plexus-classworlds-2.4.jar"/>
     <property name="sun.cpu.endian" value="little"/>
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="mrj.version" value="1070.1.6.0_65-462"/>
@@ -65,48 +65,7 @@
     <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="sun.cpu.isalist" value=""/>
   </properties>
-  <testcase time="0.014" classname="kr.ac.jejuuniv.UserServiceTest" name="initializationError">
-    <error message="org/springframework/core/annotation/AnnotatedElementUtils" type="java.lang.NoClassDefFoundError">java.lang.NoClassDefFoundError: org/springframework/core/annotation/AnnotatedElementUtils
-	at org.springframework.test.context.MetaAnnotationUtils$AnnotationDescriptor.&lt;init&gt;(MetaAnnotationUtils.java:305)
-	at org.springframework.test.context.MetaAnnotationUtils$UntypedAnnotationDescriptor.&lt;init&gt;(MetaAnnotationUtils.java:367)
-	at org.springframework.test.context.MetaAnnotationUtils$UntypedAnnotationDescriptor.&lt;init&gt;(MetaAnnotationUtils.java:362)
-	at org.springframework.test.context.MetaAnnotationUtils.findAnnotationDescriptorForTypes(MetaAnnotationUtils.java:207)
-	at org.springframework.test.context.MetaAnnotationUtils.findAnnotationDescriptorForTypes(MetaAnnotationUtils.java:180)
-	at org.springframework.test.context.ContextLoaderUtils.buildMergedContextConfiguration(ContextLoaderUtils.java:622)
-	at org.springframework.test.context.DefaultTestContext.&lt;init&gt;(DefaultTestContext.java:93)
-	at org.springframework.test.context.TestContextManager.&lt;init&gt;(TestContextManager.java:122)
-	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.createTestContextManager(SpringJUnit4ClassRunner.java:118)
-	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.&lt;init&gt;(SpringJUnit4ClassRunner.java:107)
-	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
-	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:39)
-	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:27)
-	at java.lang.reflect.Constructor.newInstance(Constructor.java:513)
-	at org.junit.internal.builders.AnnotatedBuilder.buildRunner(AnnotatedBuilder.java:31)
-	at org.junit.internal.builders.AnnotatedBuilder.runnerForClass(AnnotatedBuilder.java:24)
-	at org.junit.runners.model.RunnerBuilder.safeRunnerForClass(RunnerBuilder.java:57)
-	at org.junit.internal.builders.AllDefaultPossibilitiesBuilder.runnerForClass(AllDefaultPossibilitiesBuilder.java:29)
-	at org.junit.runners.model.RunnerBuilder.safeRunnerForClass(RunnerBuilder.java:57)
-	at org.junit.internal.requests.ClassRequest.getRunner(ClassRequest.java:24)
-	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:250)
-	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:141)
-	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:112)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
-	at java.lang.reflect.Method.invoke(Method.java:597)
-	at org.apache.maven.surefire.util.ReflectionUtils.invokeMethodWithArray(ReflectionUtils.java:189)
-	at org.apache.maven.surefire.booter.ProviderFactory$ProviderProxy.invoke(ProviderFactory.java:165)
-	at org.apache.maven.surefire.booter.ProviderFactory.invokeProvider(ProviderFactory.java:85)
-	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
-	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
-Caused by: java.lang.ClassNotFoundException: org.springframework.core.annotation.AnnotatedElementUtils
-	at java.net.URLClassLoader$1.run(URLClassLoader.java:202)
-	at java.security.AccessController.doPrivileged(Native Method)
-	at java.net.URLClassLoader.findClass(URLClassLoader.java:190)
-	at java.lang.ClassLoader.loadClass(ClassLoader.java:306)
-	at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:301)
-	at java.lang.ClassLoader.loadClass(ClassLoader.java:247)
-	... 32 more
-</error>
-  </testcase>
+  <testcase time="0.013" classname="kr.ac.jejuuniv.UserServiceTest" name="should_return_matched_result_when_user_is_member"/>
+  <testcase time="0.017" classname="kr.ac.jejuuniv.UserServiceTest" name="should_add_user_when_user_is_not_member"/>
+  <testcase time="0.017" classname="kr.ac.jejuuniv.UserServiceTest" name="should_throw_an_exception_when_the_added_user_is_already_exist"/>
 </testsuite>

@@ -28,12 +28,10 @@
 			for (var i = 0; i < data.length; i++) {
 				var date = new Date();
 				var month = (date.getMonth() + 1);
-				var today = date.getFullYear() + "." + app.addZero(month) + "." + date.getDate();
-
-				var hour = date.getHours() ;
-				var minute = date.getMinutes();
-				if (data[i].date == today) {
-						data[i].date = hour+":"+app.addZero(minute);	
+				var day = date.getDate()+"";
+				var today = date.getFullYear() + "." + app.addZero(month) + "." + app.addZero(day);
+				if(today === data[i].date){
+					data[i].date = data[i].time;
 				}
 			}
 		},

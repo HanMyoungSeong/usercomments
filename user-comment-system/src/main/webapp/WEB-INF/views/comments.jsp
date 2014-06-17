@@ -12,9 +12,7 @@
 <body style="background-color: #000000">
 	<div id="wrap">
 		<div id="header">
-			<div id="userid">
-				<label>${username}</label>
-			</div>
+			<div id="userid" style="top: 30px; left:10px; position: relative;">${username}</div> 
 			<a id="writeButton" class="btn btn-default leftbutton">글쓰기</a>
 			<hr id="underline" />
 		</div>
@@ -34,12 +32,11 @@
 							<td class="rightalign"><@=list[i].author@></td>
 							<td class="centeralign"><@=list[i].comment@></td>
 							<td class="centeralign">
-
-								<a href="" class="btn btn-default">찬성(<@=list[i].recommendation@>)</a>&nbsp
-								<a href="#" class="btn btn-default">반대(<@=list[i].opposition@>)</a> 
+								<a href="addRecommendation?commentId=<@=list[i].commentId@>" class="btn btn-default">찬성(<@=list[i].recommendation@>)</a>&nbsp
+								<a href="addOpposition?commentId=<@=list[i].commentId@>" class="btn btn-default">반대(<@=list[i].opposition@>)</a>
 							</td>
 							<td>
-							<@var id = ${id}@>
+						<@var id = ${id}@>
 						<@	if(id === list[i].id)	{	@>
 								<a href="deleteComment?commentId=<@=list[i].commentId@>" class="btn btn-default">삭제</a>
 									
