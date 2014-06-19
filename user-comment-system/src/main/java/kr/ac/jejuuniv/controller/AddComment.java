@@ -4,6 +4,7 @@ import javax.servlet.http.HttpSession;
 
 import kr.ac.jejuuniv.model.Comment;
 import kr.ac.jejuuniv.service.comment.CommentService;
+import kr.ac.jejuuniv.service.electionmember.ElectionMemberService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -16,6 +17,7 @@ public class AddComment {
 	@Autowired
 	private CommentService commentService;
 
+	
 	@RequestMapping
 	public String addComment(Comment comment, HttpSession httpSession) {
 		comment.setId((Integer) httpSession.getAttribute("id"));

@@ -12,7 +12,7 @@
 <body style="background-color: #000000">
 	<div id="wrap">
 		<div id="header">
-			<div id="userid" style="top: 30px; left:10px; position: relative;">${username}</div> 
+			<div id="userid">${username}</div> 
 			<a id="writeButton" class="btn btn-default leftbutton">글쓰기</a>
 			<hr id="underline" />
 		</div>

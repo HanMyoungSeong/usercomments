@@ -19,13 +19,13 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 public class CommentServiceTest {
 
 	private static final int 
-	FOREIGN_KEY_ID = 21;
+	FOREIGN_KEY_ID = 29;
 
 	private static final int 
-	COMMENT_ID = 102;
+	COMMENT_ID = 124;
 
 	private static final String 
-	AUTHOR = "testname650130925";
+	AUTHOR = "testname-1393604035";
 
 	private static final String 
 	COMMENT = "testcomment";
@@ -37,10 +37,10 @@ public class CommentServiceTest {
 	OPPOSITION = 0;
 
 	private static final String 
-	DATE = "2014.06.17";
+	DATE = "2014.06.18";
 
 	private static final String 
-	TIME = "0";
+	TIME = "11:57";
 	
 	@Autowired
 	private CommentService commentService;
@@ -78,7 +78,7 @@ public class CommentServiceTest {
 		assertThat(findComment.getAuthor(), is(AUTHOR));
 		assertThat(findComment.getComment(), is(COMMENT));
 		assertThat(findComment.getDate(), is(DATE));
-		assertThat(comment.getTime(), is(TIME));
+		assertFalse(findComment.getTime() == DATE);
 		assertFalse(findComment.getRecommendation() == RECOMMENDATION);
 		assertFalse(findComment.getOpposition() == OPPOSITION);
 	}

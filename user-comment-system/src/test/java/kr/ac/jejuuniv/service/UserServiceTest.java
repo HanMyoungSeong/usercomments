@@ -19,10 +19,10 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 public class UserServiceTest {
 	
 	private static final int
-	ID = 21;
+	ID = 29;
 	
 	private static final String
-	USERNAME = "testname-643066964";
+	USERNAME = "testname-1393604035";
 	
 	private static final String
 	PASSWORD = "1q2w3e";

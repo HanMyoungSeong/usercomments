@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="kr.ac.jejuuniv.repository.ElectionMemberRepository">
+	<insert id="insert" parameterType="ElectionMember">
+		insert into electionmember(userid, recommendation, opposition) 
+		values(#{userId},#{recommendation},#{opposition});
+	</insert>
+	
+	<select id="getAll" resultType="ElectionMember">
+		select *from electionmember where userid = #{userId}
+	</select>
+	
+	<update id="recommend" parameterType="ElectionMember">
+		update electionmember set recommendation = recommendation + 1 where userid = #{userId}		
+	</update>
+	
+	<update id="opposition" parameterType="ElectionMember">
+		update electionmember set opposition = opposition + 1 where userid = #{userId}
+	</update>
+</mapper>
