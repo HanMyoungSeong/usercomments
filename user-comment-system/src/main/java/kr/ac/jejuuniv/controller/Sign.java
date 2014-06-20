@@ -29,6 +29,9 @@ public class Sign {
 	public String signIn(String userName, String password, HttpSession httpSession) {
 		try {
 			userService.addMemeber(new User(userName, password));
+			User getUser = userService.findByUserName(userName);
+			electionMemberService.addElectionMember(new ElectionMember(getUser.getId()));
+			
 		} catch (Exception e) {
 			sessionUserLogin(userName, httpSession);
 		} finally {
@@ -41,6 +44,5 @@ public class Sign {
 		User getUser = userService.findByUserName(userName);
 		httpSession.setAttribute("id", getUser.getId());
 		httpSession.setAttribute("username", getUser.getUserName());
-		electionMemberService.addElectionMember(new ElectionMember(getUser.getId()));
 	}
 }

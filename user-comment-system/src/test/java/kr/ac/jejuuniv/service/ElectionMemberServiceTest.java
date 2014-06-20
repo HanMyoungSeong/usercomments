@@ -1,12 +1,7 @@
 package kr.ac.jejuuniv.service;
 
-import static org.hamcrest.CoreMatchers.*;
-import static org.junit.Assert.*;
-
-import java.util.List;
-
-import javax.swing.undo.UndoableEditSupport;
-
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 import kr.ac.jejuuniv.model.ElectionMember;
 import kr.ac.jejuuniv.service.electionmember.ElectionMemberService;
 
@@ -34,44 +29,56 @@ public class ElectionMemberServiceTest {
 	
 	@Test
 	public void //
-	should_user_is_add_election_member() {
-		ElectionMember election = new ElectionMember();
-		election.setUserId(USER_ID);
-		
-		electionMemberService.addElectionMember(election);
-		
-		List<ElectionMember> electionMembers = electionMemberService.electionMemberList(USER_ID);
-		
-		assertFalse(electionMembers.isEmpty());
+	should_add_election_member_when_user_is_not_election_member(){
+		try {
+			ElectionMember election = new ElectionMember();
+			election.setUserId(USER_ID);
+			electionMemberService.addElectionMember(election);
+		} catch (Exception e) {
+			ElectionMember electionMember = electionMemberService.findByUserId(USER_ID);
+			assertTrue(electionMember.getUserId() == USER_ID);
+		}
 	}
 	
-	@Test
+	@Test(expected=IllegalArgumentException.class)
 	public void //
-	should_return_matched_result_when_user_is_recommed() {
-		electionMemberService.addRecommend(USER_ID);
-		ElectionMember electionMember = electionMemberService.electionMemberList(USER_ID).get(0);
-		assertFalse(electionMember.getRecommendation() == RECOMMENDATION);
+	should_throw_an_exception_when_user_is_duplicated_election_member() {
+		ElectionMember electionMember = new ElectionMember();
+		electionMember.setUserId(USER_ID);
+		electionMemberService.addElectionMember(electionMember);
 	}
 	
 	@Test
 	public void //
 	should_return_matched_result_when_user_is_opposition() {
-		electionMemberService.addOpposition(USER_ID);
-		ElectionMember electionMember = electionMemberService.electionMemberList(USER_ID).get(0);
-		assertFalse(electionMember.getRecommendation() == OPPOSITION);
+		try {
+			electionMemberService.addOpposition(USER_ID);
+		} catch (Exception e) {
+			ElectionMember electionMember = electionMemberService.findByUserId(USER_ID);
+			assertTrue(electionMember.getOpposition() == OPPOSITION);
+		}
 	}
 	
-	@Test	
+	@Test(expected = IllegalArgumentException.class)
 	public void //
-	should_throw_an_exception_when_user_is_duplicate_recommendation() {
-		boolean isDuplicateRecommendation =electionMemberService.isDuplicateRecommendation(USER_ID);
-		assertTrue(isDuplicateRecommendation);
+	should_throw_an_exception_when_user_is_duplicated_opposition() {
+		electionMemberService.addOpposition(USER_ID);
 	}
 	
 	@Test
 	public void //
-	should_throw_an_exception_when_user_is_duplciate_opposition() {
-		boolean isDuplicateOpposition = electionMemberService.isDuplicateOpposition(USER_ID);
-		assertTrue(isDuplicateOpposition);
+	should_return_matched_result_when_user_is_recommedation() {
+		try {
+			electionMemberService.addRecommend(USER_ID);
+		} catch (Exception e) {
+			ElectionMember electionMember = electionMemberService.findByUserId(USER_ID);
+			assertTrue(electionMember.getRecommendation() == RECOMMENDATION);
+		}
+	}
+	
+	@Test(expected=IllegalArgumentException.class)
+	public void //
+	should_throw_an_exception_when_user_is_duplicated_recommendation() {
+		electionMemberService.addRecommend(USER_ID);
 	}
 }

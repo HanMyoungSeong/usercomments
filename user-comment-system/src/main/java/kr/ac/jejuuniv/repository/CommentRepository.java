@@ -13,12 +13,11 @@ public interface CommentRepository {
 
 	void insert(Comment comment);
 
-	List<Comment> getAll();
-
 	void delete(int commentId);
+
+	List<Comment> getAll();
 
 	void recommend(int commentId);
 
 	void oppose(int commentId);
-
 }

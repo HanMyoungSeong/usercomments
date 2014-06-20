@@ -22,12 +22,13 @@ public class AddOpposition {
 	@RequestMapping
 	public String addOpposition(int commentId, HttpSession httpSession) {
 		Integer userId = (Integer) httpSession.getAttribute("id");
-		if (electionMemberService.isDuplicateOpposition(userId))
-			return "redirect:/comments.jeju";
-		else {
-			electionMemberService.addRecommend(userId);
+		try {
+			electionMemberService.addOpposition(userId);
 			commentService.addOpposition(commentId);
+		} catch (Exception e) {
 			return "redirect:/comments.jeju";
 		}
+		
+		return "redirect:/comments.jeju";
 	}
 }

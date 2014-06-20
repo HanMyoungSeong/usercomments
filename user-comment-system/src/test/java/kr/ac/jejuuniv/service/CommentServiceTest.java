@@ -98,15 +98,15 @@ public class CommentServiceTest {
 		Comment deletedComment = commentService.findByCommentId(deleteCommentId);
 		assertNull(deletedComment);
 	}
-
+	
 	@Test
 	public void //
 	should_return_matched_result_when_user_is_recommend_comment() {
-		commentService.addRecommend(COMMENT_ID);
+		commentService.addRecommendation(COMMENT_ID);
 		Comment comment = commentService.findByCommentId(COMMENT_ID);
 		assertFalse(comment.getRecommendation() == RECOMMENDATION);
 	}
-
+	
 	@Test
 	public void //
 	should_return_matched_result_when_user_is_oppose_comment() {

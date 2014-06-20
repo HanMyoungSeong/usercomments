@@ -12,6 +12,10 @@
 		select *from electionmember where userid = #{userId}
 	</select>
 	
+	<select id="get" resultType="ElectionMember">
+		select *from electionmember where userid = #{userId}
+	</select>
+	
 	<update id="recommend" parameterType="ElectionMember">
 		update electionmember set recommendation = recommendation + 1 where userid = #{userId}		
 	</update>

@@ -17,5 +17,5 @@ public interface ElectionMemberRepository {
 
 	void opposition(int userId);
 
-	
+	ElectionMember get(int userId);
 }

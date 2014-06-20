@@ -1,12 +1,10 @@
 package kr.ac.jejuuniv.service.electionmember;
 
-import java.util.List;
+import kr.ac.jejuuniv.model.ElectionMember;
+import kr.ac.jejuuniv.repository.ElectionMemberRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import kr.ac.jejuuniv.model.ElectionMember;
-import kr.ac.jejuuniv.repository.ElectionMemberRepository;
 
 @Service
 public class ElectionMemberServiceImpl implements ElectionMemberService {
@@ -15,42 +13,37 @@ public class ElectionMemberServiceImpl implements ElectionMemberService {
 	private ElectionMemberRepository electionMemberRepository;
 
 	@Override
-	public void addElectionMember(ElectionMember electionMember) {
-		electionMemberRepository.insert(electionMember);
+	public ElectionMember findByUserId(int userId) {
+		return electionMemberRepository.get(userId);
 	}
 
 	@Override
-	public List<ElectionMember> electionMemberList(int userId) {
-		return electionMemberRepository.getAll(userId);
+	public void addElectionMember(ElectionMember electionMember) {
+		ElectionMember addedUser = electionMemberRepository.get(electionMember.getUserId());
+		if (addedUser == null)
+			electionMemberRepository.insert(electionMember);
+		else
+			throw new IllegalArgumentException("user is duplicated election member(" + electionMember.getUserId() + ") METHOD : addElectionMember()");
 	}
 
 	@Override
 	public void addRecommend(int userId) {
-		electionMemberRepository.recommend(userId);
+		ElectionMember electionMember = electionMemberRepository.get(userId);
+		System.out.println(electionMember.getRecommendation());
+		if(electionMember.getRecommendation() == 0){
+			electionMemberRepository.recommend(userId);
+		}else{
+			throw new IllegalArgumentException("user is dupliated election ("+userId+") METHOD : addRecommend()");
+		}
 	}
 
 	@Override
 	public void addOpposition(int userId) {
-		electionMemberRepository.opposition(userId);
-	}
-
-	@Override
-	public boolean isDuplicateRecommendation(int userId) {
-		for (ElectionMember electionMember : electionMemberRepository.getAll(userId)) {
-			if (electionMember.getRecommendation() == 0) {
-				return false;
-			}
+		ElectionMember electionMember = electionMemberRepository.get(userId);
+		if(electionMember.getOpposition() == 0){
+			electionMemberRepository.opposition(userId);
+		}else{
+			throw new IllegalArgumentException("user is dupliated election ("+userId+") METHOD : addOpposition()");
 		}
-		return true;
-	}
-
-	@Override
-	public boolean isDuplicateOpposition(int userId) {
-		for (ElectionMember electionMember : electionMemberRepository.getAll(userId)) {
-			if (electionMember.getOpposition() == 0) {
-				return false;
-			}
-		}
-		return true;
 	}
 }

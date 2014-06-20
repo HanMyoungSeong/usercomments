@@ -39,7 +39,7 @@ public class CommentServiceImpl implements CommentService {
 	}
 
 	@Override
-	public void addRecommend(int commentId) {
+	public void addRecommendation(int commentId) {
 		commentRepository.recommend(commentId);
 	}
 
@@ -47,5 +47,4 @@ public class CommentServiceImpl implements CommentService {
 	public void addOpposition(int commentId) {
 		commentRepository.oppose(commentId);
 	}
-
 }

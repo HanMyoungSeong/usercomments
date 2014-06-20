@@ -7,7 +7,6 @@ import kr.ac.jejuuniv.service.electionmember.ElectionMemberService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
@@ -23,13 +22,13 @@ public class AddRecommendation {
 	@RequestMapping
 	public String addRecommendation(int commentId, HttpSession httpSession) {
 		Integer userId = (Integer) httpSession.getAttribute("id");
-		if (electionMemberService.isDuplicateRecommendation(userId))
-			return "redirect:/comments.jeju";
-		else {
+		try {
 			electionMemberService.addRecommend(userId);
-			commentService.addRecommend(commentId);
+			commentService.addRecommendation(commentId);
+		} catch (Exception e) {
 			return "redirect:/comments.jeju";
 		}
-	}
 
+		return "redirect:/comments.jeju";
+	}
 }

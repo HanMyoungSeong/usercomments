@@ -14,8 +14,8 @@ public interface CommentService {
 
 	void deleteComment(int commentId);
 
-	void addRecommend(int commentId);
+	void addRecommendation(int commentId);
 
 	void addOpposition(int commentId);
-
+	
 }
